@@ -29,7 +29,7 @@ Formbuilder.registerField 'checkboxes',
   """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-square-o"></span></span> Checkboxes
+    <span class='symbol glyphicon glyphicon-check' aria-hidden='true'></span> Checkboxes
   """
 
   defaultAttributes: (attrs) ->

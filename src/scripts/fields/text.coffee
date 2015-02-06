@@ -12,7 +12,7 @@ Formbuilder.registerField 'text',
   """
 
   addButton: """
-    <span class='symbol'><span class='fa fa-font'></span></span> Text
+    <span class='symbol glyphicon glyphicon-font' aria-hidden='true'></span> Text
   """
 
   defaultAttributes: (attrs) ->

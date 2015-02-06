@@ -27,8 +27,7 @@
     "underscore.mixin.deepExtend": "https://gist.github.com/ajb/6519561/raw/63682037af9b10200b05c1a3d5890903397b2103/underscore.mixin.deepExtend.js",
     "backbone": "~1.1.0",
     "backbone-deep-model": "~0.10.4",
-    "rivets": "~0.5.13",
-    "font-awesome": "~4.0.0"
+    "rivets": "~0.5.13"
   },
   "devDependencies": {
     "bootstrap": "~3.3.2"

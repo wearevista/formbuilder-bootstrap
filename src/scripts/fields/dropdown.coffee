@@ -21,7 +21,7 @@ Formbuilder.registerField 'dropdown',
   """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-caret-down"></span></span> Dropdown
+    <span class='symbol glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span> Dropdown
   """
 
   defaultAttributes: (attrs) ->

@@ -29,7 +29,7 @@ Formbuilder.registerField 'radio',
   """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-circle-o"></span></span> Multiple Choice
+    <span class='symbol glyphicon glyphicon-record' aria-hidden='true'></span> Multiple Choice
   """
 
   defaultAttributes: (attrs) ->
