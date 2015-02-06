@@ -1,9 +1,9 @@
 {
   "name": "formbuilder",
-  "version": "0.2.1",
-  "homepage": "https://github.com/dobtco/formbuilder",
+  "version": "0.2.1-bootstrap",
+  "homepage": "https://github.com/wearevista/formbuilder-bootstrap",
   "authors": [
-    "ajb <ad@mbecker.cc>"
+    "Jack Turnbull <jack.turnbull@wearevista.co.uk>"
   ],
   "description": "Graphical form builder for the web.",
   "main": [
@@ -29,5 +29,8 @@
     "backbone-deep-model": "~0.10.4",
     "rivets": "~0.5.13",
     "font-awesome": "~4.0.0"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.2"
   }
 }
