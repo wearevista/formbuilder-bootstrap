@@ -10,8 +10,8 @@
 <div class='option' data-rv-each-option='model.<%= Formbuilder.options.mappings.OPTIONS %>'>
   <input type="checkbox" class='js-default-updated form-control' data-rv-checked="option:checked" />
   <input type="text" data-rv-input="option:label" class='option-label-input form-control' />
-  <a class="js-add-option <%= Formbuilder.options.BUTTON_CLASS %>" title="Add Option"><span class='symbol glyphicon glyphicon-plus-sign' aria-hidden='true'></span></a>
-  <a class="js-remove-option <%= Formbuilder.options.BUTTON_CLASS %>" title="Remove Option"><span class='symbol glyphicon glyphicon-minus-sign' aria-hidden='true'></span></a>
+  <button class="btn btn-success" title="Add Option"><span class='symbol glyphicon glyphicon-plus-sign' aria-hidden='true'></span></button>
+  <button class="btn btn-danger" title="Remove Option"><span class='symbol glyphicon glyphicon-minus-sign' aria-hidden='true'></span></button>
 </div>
 
 <% if (typeof includeOther !== 'undefined'){ %>
@@ -22,5 +22,5 @@
 <% } %>
 
 <div class='fb-bottom-add'>
-  <a class="js-add-option <%= Formbuilder.options.BUTTON_CLASS %>">Add option</a>
+  <a class="js-add-option btn btn-success">Add option</a>
 </div>

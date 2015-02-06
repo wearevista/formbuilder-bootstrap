@@ -977,19 +977,13 @@ __p += '\n  <label>\n    <input type=\'checkbox\' data-rv-checked=\'model.' +
  } ;
 __p += '\n\n<div class=\'option\' data-rv-each-option=\'model.' +
 ((__t = ( Formbuilder.options.mappings.OPTIONS )) == null ? '' : __t) +
-'\'>\n  <input type="checkbox" class=\'js-default-updated form-control\' data-rv-checked="option:checked" />\n  <input type="text" data-rv-input="option:label" class=\'option-label-input form-control\' />\n  <a class="js-add-option ' +
-((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'" title="Add Option"><span class=\'symbol glyphicon glyphicon-plus-sign\' aria-hidden=\'true\'></span></a>\n  <a class="js-remove-option ' +
-((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'" title="Remove Option"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></a>\n</div>\n\n';
+'\'>\n  <input type="checkbox" class=\'js-default-updated form-control\' data-rv-checked="option:checked" />\n  <input type="text" data-rv-input="option:label" class=\'option-label-input form-control\' />\n  <button class="btn btn-success" title="Add Option"><span class=\'symbol glyphicon glyphicon-plus-sign\' aria-hidden=\'true\'></span></button>\n  <button class="btn btn-danger" title="Remove Option"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></button>\n</div>\n\n';
  if (typeof includeOther !== 'undefined'){ ;
 __p += '\n  <label>\n    <input type=\'checkbox\' class=\'form-control\' data-rv-checked=\'model.' +
 ((__t = ( Formbuilder.options.mappings.INCLUDE_OTHER )) == null ? '' : __t) +
 '\' />\n    Include "other"\n  </label>\n';
  } ;
-__p += '\n\n<div class=\'fb-bottom-add\'>\n  <a class="js-add-option ' +
-((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'">Add option</a>\n</div>\n';
+__p += '\n\n<div class=\'fb-bottom-add\'>\n  <a class="js-add-option btn btn-success">Add option</a>\n</div>\n';
 
 }
 return __p
@@ -1156,11 +1150,7 @@ this["Formbuilder"]["templates"]["view/duplicate_remove"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'actions-wrapper\'>\n  <a class="js-duplicate ' +
-((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'" title="Duplicate Field"><span class=\'symbol glyphicon glyphicon-plus-sign\' aria-hidden=\'true\'></span></a>\n  <a class="js-clear ' +
-((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'" title="Remove Field"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></a>\n</div>\n';
+__p += '<div class=\'actions-wrapper\'>\n  <button class="btn btn-success" title="Duplicate Field"><span class=\'symbol glyphicon glyphicon-plus-sign\' aria-hidden=\'true\'></span></button>\n  <button class="btn btn-danger" title="Remove Field"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></button>\n</div>\n';
 
 }
 return __p
