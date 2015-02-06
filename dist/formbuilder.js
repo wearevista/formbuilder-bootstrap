@@ -455,7 +455,8 @@
       $responseFieldEl = this.$el.find(".fb-field-wrapper").filter(function() {
         return $(this).data('cid') === model.cid;
       });
-      $responseFieldEl.addClass('editing').siblings('.fb-field-wrapper').removeClass('editing');
+      $responseFieldEl.find(".subtemplate-wrapper").addClass('well');
+      $responseFieldEl.siblings(".fb-field-wrapper").find(".subtemplate-wrapper").removeClass('well');
       if (this.editView) {
         if (this.editView.model.cid === model.cid) {
           this.$el.find(".fb-tabs a[data-target=\"#editField\"]").click();
@@ -855,11 +856,11 @@ this["Formbuilder"]["templates"]["edit/base_header"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-field-label\'>\n  <span data-rv-text="model.' +
+__p += '<div class=\'fb-field-label well\'>\n  <span data-rv-text="model.' +
 ((__t = ( Formbuilder.options.mappings.LABEL )) == null ? '' : __t) +
 '"></span>\n  <code class=\'field-type\' data-rv-text=\'model.' +
 ((__t = ( Formbuilder.options.mappings.FIELD_TYPE )) == null ? '' : __t) +
-'\'></code>\n  <span class=\'fa fa-arrow-right pull-right\'></span>\n</div>';
+'\'></code>\n  <span class=\'fa fa-arrow-right pull-right\'></span>\n</div>\n';
 
 }
 return __p
@@ -980,7 +981,7 @@ __p += '\n\n<div class=\'option\' data-rv-each-option=\'model.' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '" title="Add Option"><span class=\'symbol glyphicon glyphicon-plus-sign\' aria-hidden=\'true\'></span></a>\n  <a class="js-remove-option ' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'" title="Remove Option"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></i></a>\n</div>\n\n';
+'" title="Remove Option"><span class=\'symbol glyphicon glyphicon-minus-sign\' aria-hidden=\'true\'></span></a>\n</div>\n\n';
  if (typeof includeOther !== 'undefined'){ ;
 __p += '\n  <label>\n    <input type=\'checkbox\' class=\'form-control\' data-rv-checked=\'model.' +
 ((__t = ( Formbuilder.options.mappings.INCLUDE_OTHER )) == null ? '' : __t) +

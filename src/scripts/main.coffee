@@ -286,7 +286,8 @@ class BuilderView extends Backbone.View
 
   createAndShowEditView: (model) ->
     $responseFieldEl = @$el.find(".fb-field-wrapper").filter( -> $(@).data('cid') == model.cid )
-    $responseFieldEl.addClass('editing').siblings('.fb-field-wrapper').removeClass('editing')
+    $responseFieldEl.find(".subtemplate-wrapper").addClass('well')
+    $responseFieldEl.siblings(".fb-field-wrapper").find(".subtemplate-wrapper").removeClass('well')
 
     if @editView
       if @editView.model.cid is model.cid
