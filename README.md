@@ -1,5 +1,10 @@
-Formbuilder.js
-============
+# Fork
+
+We needed Formbuilder.js and its styling to be a little more 'generic' for one of our projects so we have forked the project and converted the templates to be Bootstrap compatible. Since we use Bootstrap as part of our prototyping process it made most sense to go with that. Bootstrap themes are pretty ubiquitous it should hopefully make Frombuilder.js easier to style.
+
+Pull requests and issues are accepted and this will be maintained as much as possible.
+
+# Formbuilder.js
 
 #### Update 9/26/14
 
