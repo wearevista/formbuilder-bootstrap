@@ -368,7 +368,7 @@ class Formbuilder
       x?.replace(/\n/g, '<br />')
 
   @options:
-    BUTTON_CLASS: 'fb-button'
+    BUTTON_CLASS: 'btn btn-primary'
     HTTP_ENDPOINT: ''
     HTTP_METHOD: 'POST'
     AUTOSAVE: true

@@ -5,26 +5,26 @@ Formbuilder.registerField 'time',
   view: """
     <div class='input-line'>
       <span class='hours'>
-        <input type="text" />
+        <input class='form-control' type="text" />
         <label>HH</label>
       </span>
 
       <span class='above-line'>:</span>
 
       <span class='minutes'>
-        <input type="text" />
+        <input class='form-control' type="text" />
         <label>MM</label>
       </span>
 
       <span class='above-line'>:</span>
 
       <span class='seconds'>
-        <input type="text" />
+        <input class='form-control' type="text" />
         <label>SS</label>
       </span>
 
       <span class='am_pm'>
-        <select>
+        <select class='form-control'>
           <option>AM</option>
           <option>PM</option>
         </select>

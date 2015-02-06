@@ -3,7 +3,7 @@ Formbuilder.registerField 'website',
   order: 35
 
   view: """
-    <input type='text' placeholder='http://' />
+    <input class='form-control' type='text' placeholder='http://' />
   """
 
   edit: """

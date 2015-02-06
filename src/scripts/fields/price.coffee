@@ -6,12 +6,12 @@ Formbuilder.registerField 'price',
     <div class='input-line'>
       <span class='above-line'>$</span>
       <span class='dolars'>
-        <input type='text' />
+        <input class='form-control' type='text' />
         <label>Dollars</label>
       </span>
       <span class='above-line'>.</span>
       <span class='cents'>
-        <input type='text' />
+        <input class='form-control' type='text' />
         <label>Cents</label>
       </span>
     </div>

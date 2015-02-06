@@ -3,7 +3,7 @@ Formbuilder.registerField 'paragraph',
   order: 5
 
   view: """
-    <textarea class='rf-size-<%= rf.get(Formbuilder.options.mappings.SIZE) %>'></textarea>
+    <textarea class='rf-size-<%= rf.get(Formbuilder.options.mappings.SIZE) %> form-control'></textarea>
   """
 
   edit: """
