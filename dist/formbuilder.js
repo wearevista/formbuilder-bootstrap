@@ -856,9 +856,9 @@ this["Formbuilder"]["templates"]["edit/base_header"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-field-label well\'>\n  <span data-rv-text="model.' +
+__p += '<div class=\'fb-field-label well\'>\n  <p data-rv-text="model.' +
 ((__t = ( Formbuilder.options.mappings.LABEL )) == null ? '' : __t) +
-'"></span>\n  <code class=\'field-type\' data-rv-text=\'model.' +
+'"></p>\n  <code class=\'field-type\' data-rv-text=\'model.' +
 ((__t = ( Formbuilder.options.mappings.FIELD_TYPE )) == null ? '' : __t) +
 '\'></code>\n</div>\n';
 
@@ -1017,13 +1017,13 @@ this["Formbuilder"]["templates"]["page"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p +=
-((__t = ( Formbuilder.templates['partials/save_button']() )) == null ? '' : __t) +
-'\n' +
+__p += '<div class="container-fluid">\n  <div class=\'row\'>\n    <div class=\'col-sm-4\'>\n      ' +
 ((__t = ( Formbuilder.templates['partials/left_side']() )) == null ? '' : __t) +
-'\n' +
+'\n    </div>\n    <div class=\'col-sm-8\'>\n      <div class=\'row\'>\n        <div class=\'com-xs-12\'>\n          <div class=\'pull-right\'>\n            ' +
+((__t = ( Formbuilder.templates['partials/save_button']() )) == null ? '' : __t) +
+'\n          </div>\n        </div>\n      </div>\n      <div class=\'row voffset2\'>\n        <div class=\'com-xs-12\'>\n          ' +
 ((__t = ( Formbuilder.templates['partials/right_side']() )) == null ? '' : __t) +
-'\n';
+'\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n';
 
 }
 return __p
@@ -1044,7 +1044,7 @@ __p += '\n        <a data-field-type="' +
 ((__t = ( f.addButton )) == null ? '' : __t) +
 '\n        </a>\n      ';
  }); ;
-__p += '\n    </div>\n\n    <div class=\'section\'>\n      ';
+__p += '\n    </div>\n\n    <div class=\'section voffset4\'>\n      ';
  _.each(_.sortBy(Formbuilder.nonInputFields, 'order'), function(f){ ;
 __p += '\n        <a data-field-type="' +
 ((__t = ( f.field_type )) == null ? '' : __t) +
@@ -1074,11 +1074,11 @@ this["Formbuilder"]["templates"]["partials/left_side"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-left\'>\n  <ul class=\'fb-tabs nav nav-tabs\'>\n    <li class=\'active\'><a data-target=\'#addField\'>Add new field</a></li>\n    <li><a data-target=\'#editField\'>Edit field</a></li>\n  </ul>\n\n  <div class=\'fb-tab-content tab-content\'>\n    ' +
+__p += '<ul class=\'fb-tabs nav nav-tabs\'>\n  <li class=\'active\'><a data-target=\'#addField\'>Add new field</a></li>\n  <li><a data-target=\'#editField\'>Edit field</a></li>\n</ul>\n\n<div class=\'fb-tab-content tab-content voffset3\'>\n  ' +
 ((__t = ( Formbuilder.templates['partials/add_field']() )) == null ? '' : __t) +
-'\n    ' +
+'\n  ' +
 ((__t = ( Formbuilder.templates['partials/edit_field']() )) == null ? '' : __t) +
-'\n  </div>\n</div>\n';
+'\n</div>\n';
 
 }
 return __p
@@ -1088,7 +1088,7 @@ this["Formbuilder"]["templates"]["partials/right_side"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-right\'>\n  <div class=\'fb-no-response-fields\'>No response fields</div>\n  <div class=\'fb-response-fields\'></div>\n</div>\n';
+__p += '<div class=\'fb-no-response-fields\'>No response fields</div>\n<div class=\'fb-response-fields\'></div>\n';
 
 }
 return __p
@@ -1098,9 +1098,9 @@ this["Formbuilder"]["templates"]["partials/save_button"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-save-wrapper\'>\n  <button type="button" class=\'js-save-form ' +
+__p += '<button type="button" class=\'js-save-form ' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
-'\'></button>\n</div>\n';
+'\'></button>\n';
 
 }
 return __p
