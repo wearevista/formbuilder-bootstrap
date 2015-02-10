@@ -4,22 +4,24 @@ Formbuilder.registerField 'checkboxes',
 
   view: """
     <% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>
-      <div>
-        <label class='fb-option form-group'>
-          <input class='form-control' type='checkbox' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick="javascript: return false;" />
+      <div class='checkbox'>
+        <label>
+          <input type='checkbox' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick="javascript: return false;" />
           <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>
         </label>
       </div>
     <% } %>
 
     <% if (rf.get(Formbuilder.options.mappings.INCLUDE_OTHER)) { %>
-      <div class='other-option form-group'>
-        <label class='fb-option'>
-          <input class='form-control' type='checkbox' />
-          Other
-        </label>
-
-        <input type='text' />
+      <div class='form-inline'>
+        <div class='radio'>
+          <label>
+            <input type='checkbox' /> Other
+          </label>
+        </div>
+        <div class='form-group'>
+          <input class='form-control' type='text' />
+        </div>
       </div>
     <% } %>
   """

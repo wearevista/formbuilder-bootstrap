@@ -3,33 +3,35 @@ Formbuilder.registerField 'time',
   order: 25
 
   view: """
-    <div class='input-line'>
-      <span class='hours'>
-        <input class='form-control' type="text" />
-        <label>HH</label>
-      </span>
+      <div class='row'>
+        <div class='col-sm-3'>
+          <div class='form-group'>
+            <input class='form-control' type="text" />
+            <label>HH</label>
+          </div>
+        </div>
 
-      <span class='above-line'>:</span>
+        <div class='col-sm-3'>
+          <div class='form-group'>
+            <input class='form-control' type="text" />
+            <label>MM</label>
+          </div>
+        </div>
 
-      <span class='minutes'>
-        <input class='form-control' type="text" />
-        <label>MM</label>
-      </span>
+        <div class='col-sm-3'>
+          <div class='form-group'>
+            <input class='form-control' type="text" />
+            <label>SS</label>
+          </div>
+        </div>
 
-      <span class='above-line'>:</span>
-
-      <span class='seconds'>
-        <input class='form-control' type="text" />
-        <label>SS</label>
-      </span>
-
-      <span class='am_pm'>
-        <select class='form-control'>
-          <option>AM</option>
-          <option>PM</option>
-        </select>
-      </span>
-    </div>
+        <div class='col-sm-3'>
+          <select class='form-control'>
+              <option>AM</option>
+              <option>PM</option>
+          </select>
+        </div>
+      </div>
   """
 
   edit: ""

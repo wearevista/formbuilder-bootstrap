@@ -3,35 +3,29 @@ Formbuilder.registerField 'address',
   order: 50
 
   view: """
-    <div class='input-line form-group'>
-      <span class='street'>
-        <input class='form-control' type='text' />
-        <label>Address</label>
-      </span>
+    <div class='form-group'>
+      <label>Address</label>
+      <input class='form-control' type='text' />
     </div>
 
-    <div class='input-line form-group'>
-      <span class='city'>
-        <input class='form-control' type='text' />
-        <label>City</label>
-      </span>
-
-      <span class='state'>
-        <input class='form-control' type='text' />
-        <label>State / Province / Region</label>
-      </span>
+    <div class='form-group'>
+      <label>City</label>
+      <input class='form-control' type='text' />
     </div>
 
-    <div class='input-line form-group'>
-      <span class='zip'>
-        <input class='form-control' type='text' />
-        <label>Zipcode</label>
-      </span>
+    <div class='form-group'>
+      <label>State / Province / Region</label>
+      <input class='form-control' type='text' />
+    </div>
 
-      <span class='country'>
-        <select class='form-control'><option>United States</option></select>
-        <label>Country</label>
-      </span>
+    <div class='form-group'>
+      <label>Zipcode</label>
+      <input class='form-control' type='text' />
+    </div>
+
+    <div class='form-group'>
+      <label>Country</label>
+      <select class='form-control'><option>United States</option></select>
     </div>
   """
 

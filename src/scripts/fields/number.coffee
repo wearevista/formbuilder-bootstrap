@@ -3,10 +3,14 @@ Formbuilder.registerField 'number',
   order: 30
 
   view: """
-    <input class='form-control' type='text' />
-    <% if (units = rf.get(Formbuilder.options.mappings.UNITS)) { %>
-      <%= units %>
-    <% } %>
+    <div class='form-inline'>
+      <div class='form-group'>
+        <input class='form-control' type='text' />
+        <% if (units = rf.get(Formbuilder.options.mappings.UNITS)) { %>
+          <%= units %>
+        <% } %>
+      </div>
+    </div>
   """
 
   edit: """

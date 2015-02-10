@@ -3,7 +3,9 @@ Formbuilder.registerField 'email',
   order: 40
 
   view: """
-    <input type='text' class='rf-size-<%= rf.get(Formbuilder.options.mappings.SIZE) %> form-control' />
+    <div class='form-group'>
+      <input class='form-control' type='text' />
+    </div>
   """
 
   edit: ""

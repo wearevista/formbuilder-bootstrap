@@ -3,25 +3,27 @@ Formbuilder.registerField 'date',
   order: 20
 
   view: """
-    <div class='input-line'>
-      <span class='month'>
-        <input class='form-control' type="text" />
-        <label>MM</label>
-      </span>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <input class='form-control' type="text" />
+          <label class=''>MM</label>
+        </div>
+      </div>
 
-      <span class='above-line'>/</span>
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <input class='form-control' type="text" />
+          <label>DD</label>
+        </div>
+      </div>
 
-      <span class='day'>
-        <input class='form-control' type="text" />
-        <label>DD</label>
-      </span>
-
-      <span class='above-line'>/</span>
-
-      <span class='year'>
-        <input class='form-control' type="text" />
-        <label>YYYY</label>
-      </span>
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <input class='form-control' type="text" />
+          <label>YYYY</label>
+        </div>
+      </div>
     </div>
   """
 

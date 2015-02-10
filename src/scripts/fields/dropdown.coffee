@@ -3,17 +3,19 @@ Formbuilder.registerField 'dropdown',
   order: 24
 
   view: """
-    <select class='form-control'>
-      <% if (rf.get(Formbuilder.options.mappings.INCLUDE_BLANK)) { %>
-        <option value=''></option>
-      <% } %>
+    <div class='form-group'>
+      <select class='form-control'>
+        <% if (rf.get(Formbuilder.options.mappings.INCLUDE_BLANK)) { %>
+          <option value=''></option>
+        <% } %>
 
-      <% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>
-        <option <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'selected' %>>
-          <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>
-        </option>
-      <% } %>
-    </select>
+        <% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>
+          <option <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'selected' %>>
+            <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>
+          </option>
+        <% } %>
+      </select>
+    </div>
   """
 
   edit: """
