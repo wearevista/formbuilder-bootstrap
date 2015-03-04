@@ -4,7 +4,7 @@ class FormbuilderModel extends Backbone.DeepModel
     $wrapper = $(".fb-field-wrapper").filter ( (_, el) => $(el).data('cid') == @cid  )
     $(".fb-field-wrapper").index $wrapper
   is_input: ->
-    Formbuilder.inputFields[@get(Formbuilder.options.mappings.FIELD_TYPE)]?
+    Formbuilder.inputFields[@get(Formbuilder.options.mappings.FIELD_TYPE)]? || Formbuilder.delegateFields[@get(Formbuilder.options.mappings.FIELD_TYPE)]?
 
 
 class FormbuilderCollection extends Backbone.Collection
@@ -399,6 +399,7 @@ class Formbuilder
       UNSAVED_CHANGES: 'You have unsaved changes. If you leave this page, you will lose those changes!'
 
   @fields: {}
+  @delegateFields: {}
   @inputFields: {}
   @nonInputFields: {}
 
@@ -412,6 +413,8 @@ class Formbuilder
 
     if opts.type == 'non_input'
       Formbuilder.nonInputFields[name] = opts
+    else if opts.type == 'delegate_input'
+      Formbuilder.delegateFields[name] = opts
     else
       Formbuilder.inputFields[name] = opts
 

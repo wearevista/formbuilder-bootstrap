@@ -65,7 +65,7 @@
     };
 
     FormbuilderModel.prototype.is_input = function() {
-      return Formbuilder.inputFields[this.get(Formbuilder.options.mappings.FIELD_TYPE)] != null;
+      return (Formbuilder.inputFields[this.get(Formbuilder.options.mappings.FIELD_TYPE)] != null) || (Formbuilder.delegateFields[this.get(Formbuilder.options.mappings.FIELD_TYPE)] != null);
     };
 
     return FormbuilderModel;
@@ -606,6 +606,8 @@
 
     Formbuilder.fields = {};
 
+    Formbuilder.delegateFields = {};
+
     Formbuilder.inputFields = {};
 
     Formbuilder.nonInputFields = {};
@@ -621,6 +623,8 @@
       Formbuilder.fields[name] = opts;
       if (opts.type === 'non_input') {
         return Formbuilder.nonInputFields[name] = opts;
+      } else if (opts.type === 'delegate_input') {
+        return Formbuilder.delegateFields[name] = opts;
       } else {
         return Formbuilder.inputFields[name] = opts;
       }
@@ -653,11 +657,24 @@
 }).call(this);
 
 (function() {
-  Formbuilder.registerField('address', {
-    order: 50,
-    view: "<div class='form-group'>\n  <label>Address</label>\n  <input class='form-control' type='text' />\n</div>\n\n<div class='form-group'>\n  <label>City</label>\n  <input class='form-control' type='text' />\n</div>\n\n<div class='form-group'>\n  <label>State / Province / Region</label>\n  <input class='form-control' type='text' />\n</div>\n\n<div class='form-group'>\n  <label>Zipcode</label>\n  <input class='form-control' type='text' />\n</div>\n\n<div class='form-group'>\n  <label>Country</label>\n  <select class='form-control'><option>United States</option></select>\n</div>",
-    edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-home' aria-hidden='true'></span> Address"
+  Formbuilder.registerField('attendance', {
+    order: 15,
+    type: 'delegate_input',
+    view: "<% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>\n  <div class='radio'>\n    <label>\n      <input type='radio' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick=\"javascript: return false;\" />\n      <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>\n    </label>\n  </div>\n<% } %>\n\n<% if (rf.get(Formbuilder.options.mappings.INCLUDE_OTHER)) { %>\n  <div class='form-inline'>\n    <div class='radio'>\n      <label>\n        <input type='radio' /> Other\n      </label>\n    </div>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n    </div>\n  </div>\n<% } %>",
+    edit: "<%= Formbuilder.templates['edit/attendance_options']() %>",
+    addButton: "<span class='symbol glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Attendance",
+    defaultAttributes: function(attrs) {
+      attrs.field_options.options = [
+        {
+          label: "Yes",
+          checked: false
+        }, {
+          label: "No",
+          checked: false
+        }
+      ];
+      return attrs;
+    }
   });
 
 }).call(this);
@@ -680,16 +697,6 @@
       ];
       return attrs;
     }
-  });
-
-}).call(this);
-
-(function() {
-  Formbuilder.registerField('date', {
-    order: 20,
-    view: "<div class='row'>\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label class=''>MM</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label>DD</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label>YYYY</label>\n    </div>\n  </div>\n</div>",
-    edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-calendar' aria-hidden='true'></span> Date"
   });
 
 }).call(this);
@@ -719,7 +726,8 @@
 
 (function() {
   Formbuilder.registerField('email', {
-    order: 40,
+    order: 10,
+    type: 'delegate_input',
     view: "<div class='form-group'>\n  <input class='form-control' type='text' />\n</div>",
     edit: "",
     addButton: "<span class='symbol glyphicon glyphicon-envelope' aria-hidden='true'></span> Email"
@@ -729,6 +737,36 @@
 
 (function() {
 
+
+}).call(this);
+
+(function() {
+  Formbuilder.registerField('first_name', {
+    order: 0,
+    type: 'delegate_input',
+    view: "<div class='form-group'>\n  <input type='text' class='rf-size-<%= rf.get(Formbuilder.options.mappings.SIZE) %> form-control' />\n</div>",
+    edit: "<%= Formbuilder.templates['edit/size']() %>\n<%= Formbuilder.templates['edit/min_max_length']() %>",
+    addButton: "<span class='symbol glyphicon glyphicon-user' aria-hidden='true'></span> First Name",
+    defaultAttributes: function(attrs) {
+      attrs.field_options.size = 'small';
+      return attrs;
+    }
+  });
+
+}).call(this);
+
+(function() {
+  Formbuilder.registerField('last_name', {
+    order: 5,
+    type: 'delegate_input',
+    view: "<div class='form-group'>\n  <input type='text' class='rf-size-<%= rf.get(Formbuilder.options.mappings.SIZE) %> form-control' />\n</div>",
+    edit: "<%= Formbuilder.templates['edit/size']() %>\n<%= Formbuilder.templates['edit/min_max_length']() %>",
+    addButton: "<span class='symbol glyphicon glyphicon-user' aria-hidden='true'></span> Last Name",
+    defaultAttributes: function(attrs) {
+      attrs.field_options.size = 'small';
+      return attrs;
+    }
+  });
 
 }).call(this);
 
@@ -752,16 +790,6 @@
       attrs.field_options.size = 'small';
       return attrs;
     }
-  });
-
-}).call(this);
-
-(function() {
-  Formbuilder.registerField('price', {
-    order: 45,
-    view: "<div class='row'>\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n      <label>Dollars</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n      <label>Cents</label>\n    </div>\n  </div>\n</div>",
-    edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-usd' aria-hidden='true'></span> Price"
   });
 
 }).call(this);
@@ -813,28 +841,20 @@
 
 }).call(this);
 
-(function() {
-  Formbuilder.registerField('time', {
-    order: 25,
-    view: "<div class='row'>\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label>HH</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label>MM</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <div class='form-group'>\n      <input class='form-control' type=\"text\" />\n      <label>SS</label>\n    </div>\n  </div>\n\n  <div class='col-sm-3'>\n    <select class='form-control'>\n        <option>AM</option>\n        <option>PM</option>\n    </select>\n  </div>\n</div>",
-    edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-time' aria-hidden='true'></span> Time"
-  });
-
-}).call(this);
-
-(function() {
-  Formbuilder.registerField('website', {
-    order: 35,
-    view: "<input class='form-control' type='text' placeholder='http://' />",
-    edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-link' aria-hidden='true'></span> Website"
-  });
-
-}).call(this);
-
 this["Formbuilder"] = this["Formbuilder"] || {};
 this["Formbuilder"]["templates"] = this["Formbuilder"]["templates"] || {};
+
+this["Formbuilder"]["templates"]["edit/attendance_options"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class=\'fb-edit-section-header\'>Options</div>\n\n<div class=\'option\' data-rv-each-option=\'model.' +
+((__t = ( Formbuilder.options.mappings.OPTIONS )) == null ? '' : __t) +
+'\'>\n  <div class=\'form-group\'>\n    <input type="text" data-rv-input="option:label" class=\'option-label-input form-control\' />\n  </div>\n</div>\n\n';
+
+}
+return __p
+};
 
 this["Formbuilder"]["templates"]["edit/base"] = function(obj) {
 obj || (obj = {});
@@ -1034,7 +1054,17 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class=\'fb-tab-pane tab-pane active\' id=\'addField\'>\n  <div class=\'fb-add-field-types\'>\n    <div class=\'section\'>\n      ';
+__p += '<div class=\'fb-tab-pane tab-pane active\' id=\'addField\'>\n  <div class=\'fb-add-field-types\'>\n\n    <div class=\'section\'>\n      ';
+ _.each(_.sortBy(Formbuilder.delegateFields, 'order'), function(f){ ;
+__p += '\n        <a data-field-type="' +
+((__t = ( f.field_type )) == null ? '' : __t) +
+'" class="' +
+((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
+'">\n          ' +
+((__t = ( f.addButton )) == null ? '' : __t) +
+'\n        </a>\n      ';
+ }); ;
+__p += '\n    </div>\n\n    <div class=\'section voffset4\'>\n      ';
  _.each(_.sortBy(Formbuilder.inputFields, 'order'), function(f){ ;
 __p += '\n        <a data-field-type="' +
 ((__t = ( f.field_type )) == null ? '' : __t) +

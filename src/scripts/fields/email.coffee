@@ -1,6 +1,8 @@
 Formbuilder.registerField 'email',
 
-  order: 40
+  order: 10
+
+  type: 'delegate_input'
 
   view: """
     <div class='form-group'>
