@@ -1,4 +1,4 @@
-Formbuilder.registerField 'attendance',
+Formbuilder.registerField 'registration_status',
 
   order: 15
 
@@ -29,7 +29,7 @@ Formbuilder.registerField 'attendance',
   """
 
   edit: """
-    <%= Formbuilder.templates['edit/attendance_options']() %>
+    <%= Formbuilder.templates['edit/registration_status_options']() %>
   """
 
   addButton: """

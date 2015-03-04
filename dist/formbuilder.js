@@ -657,29 +657,6 @@
 }).call(this);
 
 (function() {
-  Formbuilder.registerField('attendance', {
-    order: 15,
-    type: 'delegate_input',
-    view: "<% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>\n  <div class='radio'>\n    <label>\n      <input type='radio' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick=\"javascript: return false;\" />\n      <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>\n    </label>\n  </div>\n<% } %>\n\n<% if (rf.get(Formbuilder.options.mappings.INCLUDE_OTHER)) { %>\n  <div class='form-inline'>\n    <div class='radio'>\n      <label>\n        <input type='radio' /> Other\n      </label>\n    </div>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n    </div>\n  </div>\n<% } %>",
-    edit: "<%= Formbuilder.templates['edit/attendance_options']() %>",
-    addButton: "<span class='symbol glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Attendance",
-    defaultAttributes: function(attrs) {
-      attrs.field_options.options = [
-        {
-          label: "Yes",
-          checked: false
-        }, {
-          label: "No",
-          checked: false
-        }
-      ];
-      return attrs;
-    }
-  });
-
-}).call(this);
-
-(function() {
   Formbuilder.registerField('checkboxes', {
     order: 10,
     view: "<% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>\n  <div class='checkbox'>\n    <label>\n      <input type='checkbox' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick=\"javascript: return false;\" />\n      <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>\n    </label>\n  </div>\n<% } %>\n\n<% if (rf.get(Formbuilder.options.mappings.INCLUDE_OTHER)) { %>\n  <div class='form-inline'>\n    <div class='radio'>\n      <label>\n        <input type='checkbox' /> Other\n      </label>\n    </div>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n    </div>\n  </div>\n<% } %>",
@@ -817,6 +794,29 @@
 }).call(this);
 
 (function() {
+  Formbuilder.registerField('registration_status', {
+    order: 15,
+    type: 'delegate_input',
+    view: "<% for (i in (rf.get(Formbuilder.options.mappings.OPTIONS) || [])) { %>\n  <div class='radio'>\n    <label>\n      <input type='radio' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick=\"javascript: return false;\" />\n      <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>\n    </label>\n  </div>\n<% } %>\n\n<% if (rf.get(Formbuilder.options.mappings.INCLUDE_OTHER)) { %>\n  <div class='form-inline'>\n    <div class='radio'>\n      <label>\n        <input type='radio' /> Other\n      </label>\n    </div>\n    <div class='form-group'>\n      <input class='form-control' type='text' />\n    </div>\n  </div>\n<% } %>",
+    edit: "<%= Formbuilder.templates['edit/registration_status_options']() %>",
+    addButton: "<span class='symbol glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Attendance",
+    defaultAttributes: function(attrs) {
+      attrs.field_options.options = [
+        {
+          label: "Yes",
+          checked: false
+        }, {
+          label: "No",
+          checked: false
+        }
+      ];
+      return attrs;
+    }
+  });
+
+}).call(this);
+
+(function() {
   Formbuilder.registerField('section_break', {
     order: 0,
     type: 'non_input',
@@ -843,18 +843,6 @@
 
 this["Formbuilder"] = this["Formbuilder"] || {};
 this["Formbuilder"]["templates"] = this["Formbuilder"]["templates"] || {};
-
-this["Formbuilder"]["templates"]["edit/attendance_options"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape;
-with (obj) {
-__p += '<div class=\'fb-edit-section-header\'>Options</div>\n\n<div class=\'option\' data-rv-each-option=\'model.' +
-((__t = ( Formbuilder.options.mappings.OPTIONS )) == null ? '' : __t) +
-'\'>\n  <div class=\'form-group\'>\n    <input type="text" data-rv-input="option:label" class=\'option-label-input form-control\' />\n  </div>\n</div>\n\n';
-
-}
-return __p
-};
 
 this["Formbuilder"]["templates"]["edit/base"] = function(obj) {
 obj || (obj = {});
@@ -1004,6 +992,18 @@ __p += '\n  <div class=\'checkbox\'>\n    <label>\n      <input type=\'checkbox\
 '\' /> Include "other"\n    </label>\n  </div>\n';
  } ;
 __p += '\n\n<div class=\'fb-bottom-add\'>\n  <button class="js-add-option btn btn-success">Add option</button>\n</div>\n';
+
+}
+return __p
+};
+
+this["Formbuilder"]["templates"]["edit/registration_status_options"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class=\'fb-edit-section-header\'>Options</div>\n\n<div class=\'option\' data-rv-each-option=\'model.' +
+((__t = ( Formbuilder.options.mappings.OPTIONS )) == null ? '' : __t) +
+'\'>\n  <div class=\'form-group\'>\n    <input type="text" data-rv-input="option:label" class=\'option-label-input form-control\' />\n  </div>\n</div>\n\n';
 
 }
 return __p
