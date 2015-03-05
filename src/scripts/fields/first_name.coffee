@@ -21,4 +21,5 @@ Formbuilder.registerField 'first_name',
 
   defaultAttributes: (attrs) ->
     attrs.field_options.size = 'small'
+    attrs.label = 'First Name'
     attrs

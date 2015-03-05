@@ -707,7 +707,11 @@
     type: 'delegate_input',
     view: "<div class='form-group'>\n  <input class='form-control' type='text' />\n</div>",
     edit: "",
-    addButton: "<span class='symbol glyphicon glyphicon-envelope' aria-hidden='true'></span> Email"
+    addButton: "<span class='symbol glyphicon glyphicon-envelope' aria-hidden='true'></span> Email",
+    defaultAttributes: function(attrs) {
+      attrs.label = 'Email';
+      return attrs;
+    }
   });
 
 }).call(this);
@@ -726,6 +730,7 @@
     addButton: "<span class='symbol glyphicon glyphicon-user' aria-hidden='true'></span> First Name",
     defaultAttributes: function(attrs) {
       attrs.field_options.size = 'small';
+      attrs.label = 'First Name';
       return attrs;
     }
   });
@@ -741,6 +746,7 @@
     addButton: "<span class='symbol glyphicon glyphicon-user' aria-hidden='true'></span> Last Name",
     defaultAttributes: function(attrs) {
       attrs.field_options.size = 'small';
+      attrs.label = 'Last Name';
       return attrs;
     }
   });
@@ -801,6 +807,7 @@
     edit: "<%= Formbuilder.templates['edit/registration_status_options']() %>",
     addButton: "<span class='symbol glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Attendance",
     defaultAttributes: function(attrs) {
+      attrs.label = 'Will you be attending this event?';
       attrs.field_options.options = [
         {
           label: "Yes",

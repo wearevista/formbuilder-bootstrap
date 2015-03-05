@@ -15,3 +15,7 @@ Formbuilder.registerField 'email',
   addButton: """
     <span class='symbol glyphicon glyphicon-envelope' aria-hidden='true'></span> Email
   """
+
+  defaultAttributes: (attrs) ->
+    attrs.label = 'Email'
+    attrs

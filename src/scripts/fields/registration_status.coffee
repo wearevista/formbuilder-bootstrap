@@ -37,6 +37,7 @@ Formbuilder.registerField 'registration_status',
   """
 
   defaultAttributes: (attrs) ->
+    attrs.label = 'Will you be attending this event?'
     attrs.field_options.options = [
       label: "Yes",
       checked: false
